@@ -1,0 +1,1 @@
+json.array! [client_token: @client_token]

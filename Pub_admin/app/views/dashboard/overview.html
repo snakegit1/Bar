@@ -1,0 +1,170 @@
+<div ng-show="allPermissions">
+
+	<div ng-include src="'/views/partials/navbar-menu.html'"></div>
+
+	<div ng-if="pubs.length!=0" ng-cloak>
+		<a ui-sref="pubdrinks({ id: pub.id })" class="pull-right btn btn-primary btn-outline btn-rounded">Carta de Tragos {{pub.name}}</a>
+		<h2>Datos Generales <small></small></h2>
+
+		<div class="jumbotron">
+  		<div class="row">
+				<div class="col-lg-4">
+					<img class="pub-logo" ng-src="{{pub.image_logo}}">
+					<input type="file" ng-model="new_image" base-sixty-four-input on-after-validate="onAfterValidateFunc">
+				</div>
+				<div class="col-lg-6">
+					<h1>{{pub.name}}</h1>
+						Mantenga actualizada la información de su Pub<br /><br />
+						<button class="btn btn-warning" ng-if="user.super_admin" ng-click="disablePub(pub.id)">{{ pub.enable ? 'Disable' : 'enable' }}</button>
+						<button class="btn btn-danger invisible" ng-disabled="true" ng-click="deletePub()" ng-if="user.super_admin">Eliminar</button>
+        </div>
+      </div>
+		</div>
+
+		<div ng-show="missingBankInfo()" ng-cloak>
+			<div class="alert alert-danger" role="alert" >
+				<p ng-cloak><strong>Aún no has ingresado todos los datos bancarios!</strong></p>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">Información General</h3>
+		  </div>
+		  <div class="panel-body">
+		    <form class="form-horizontal" role="form">
+			  <div class="form-group">
+			    <label class="col-lg-2 control-label">Nombre</label>
+			    <div class="col-lg-10">
+			       <input type="text" class="form-control" ng-model="pub.name" ng-change="pub.$update()" ng-model-options="{debounce: 750}">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label class="col-lg-2 control-label">Descripción</label>
+			    <div class="col-lg-10">
+			       <input type="text" class="form-control" ng-model="pub.description" ng-change="pub.$update()" ng-model-options="{debounce: 750}">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label class="col-lg-2 control-label">Dirección</label>
+			    <div class="col-lg-10">
+			       <input type="text" class="form-control" ng-model="pub.location" ng-change="pub.$update()" ng-model-options="{debounce: 750}">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label class="col-lg-2 control-label">Teléfono</label>
+			    <div class="col-lg-10">
+			       <input type="text" class="form-control" ng-model="pub.telephone1" ng-change="pub.$update()" ng-model-options="{debounce: 750}">
+			    </div>
+			  </div>
+
+			  <div class="col text-center">
+				<button class="btn btn-primary" ng-click="pub.$update()">Actualizar</button>
+			  </div>
+
+			</form>
+		</div>
+	 </div>
+
+	 <div class="panel panel-default" ng-if="user.super_admin">
+		 <div class="panel-heading">
+			 <h3 class="panel-title">Despliegue</h3>
+		 </div>
+		 <div class="panel-body">
+			 <form class="form-horizontal" role="form">
+				 <div class="form-group">
+					 <label class="col-lg-2 control-label">Orden en listado</label>
+					 <div class="col-lg-10">
+					 	<input type="text" class="form-control" ng-model="pub.order_index" ng-change="pub.$update()" ng-model-options="{debounce: 750}">
+					</div>
+				 </div>
+		 </form>
+	 </div>
+	</div>
+
+	 <form name="bankForm" class="form-horizontal" role="form">
+	 	<uib-accordion>
+	 		<uib-accordion-group>
+	 				<uib-accordion-heading>
+	 					 Datos Bancarios<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+	 				</uib-accordion-heading>
+	 				<div class="panel panel-default">
+	 					<div class="panel-body">
+
+	 						<div class="form-group" show-errors>
+	 							<label class="col-lg-2 control-label">Banco</label>
+	 							<div class="col-lg-10">
+	 								<ol id="array-collection" class="nya-bs-select" ng-model="pub.bank_name" title="Selecciona un Banco" disabled="editing">
+	 									<li nya-bs-option="option in bank_names">
+	 										<a>
+	 											{{option}}
+	 										</a>
+	 									</li>
+	 								</ol>
+	 								<span class="label label-danger" ng-show="bankForm.bank_name.$error.bankname">Invalido!</span>
+	 							</div>
+
+	 							<label class="col-lg-2 control-label">Tipo de Cuenta</label>
+	 							<div class="col-lg-10">
+	 								<ol id="array-collection" class="nya-bs-select" ng-model="pub.bank_account_type" title="Tipo de Cuenta" disabled="editing">
+	 									<li nya-bs-option="option in bank_account_types">
+	 										<a>
+	 											{{option}}
+	 										</a>
+	 									</li>
+	 								</ol>
+	 							</div>
+
+	 							<label class="col-lg-2 control-label">Número de Cuenta</label>
+	 							<div class="col-lg-10">
+	 								 <input type="text" name="bank_account_number" class="form-control" ng-model="pub.bank_account_number" required>
+	 								 <span class="label label-danger" ng-show="bankForm.bank_account_number.$error.required">Obligatorio!</span>
+	 							</div>
+
+	 							<label class="col-lg-2 control-label">Rut</label>
+	 							<div class="col-lg-10">
+	 								 <input type="text" name="bank_account_rut" class="form-control" ng-model="pub.bank_account_rut" required>
+	 								 <span class="label label-danger" ng-show="bankForm.bank_account_rut.$error.required">Obligatorio!</span>
+	 							</div>
+
+	 							<label class="col-lg-2 control-label">Correo Electrónico</label>
+	 							<div class="col-lg-10">
+	 								 <input type="email" name="bank_account_email" class="form-control" ng-model="pub.bank_account_email" required>
+	 								 <span class="label label-danger" ng-show="bankForm.bank_account_email.$error.required">Obligatorio!</span>
+	 								 <span class="label label-danger" ng-show="bankForm.bank_account_email.$invalid">Invalido!</span>
+	 							</div>
+	 						</div>
+
+	 						<div class="col text-center">
+	 							<button type="submit" class="btn btn-primary" ng-click="updateBank(bankForm)" ng-disabled="formCompleteInValid(bankForm)">Guardar</button>
+	 						</div>
+
+	 				</div>
+	 				</div>
+
+	 			</uib-accordion-group>
+	 		</uib-accordion>
+	 </form>
+
+	</div>
+
+
+	<div ng-if="pubs != null && pubs.length == 0" ng-cloak>
+		<h2>Bienvenido <small> {{user.name}}</small></h2>
+
+		<div class="jumbotron">
+			<img class="pub-logo" ng-src="{{pub.image_logo}}">
+			<div class="container">
+				<h1>No tienes un Pub asignado</h1>
+				Por el momento no se te ha asignado un Pub para que puedas administrar<br />
+				<br />
+			</div>
+
+		</div>
+
+		<div class="alert alert-danger" role="alert">
+			<p><strong>Comunicate con BoxFree para que se te asigne el Pub que corresponde!</strong></p>
+		</div>
+
+	</div>
+</div>

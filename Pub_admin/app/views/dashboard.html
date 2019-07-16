@@ -1,0 +1,32 @@
+<div class="dashboard-page">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-2 sidebar">
+       <div class="text-center">
+        <img src="images/logos/boxfree_logo_transparente_no_slogan_small.png" class="user-avatar" />
+        <h2 class="brand">BoxFree<small> v{{version}}</small> </h2>
+        <h2 class="brand"><small>{{user.email}}</small></h2>
+        <a ng-click="signOut()" class="btn btn-white btn-outline btn-rounded btn-sm">Salir</a>
+      </div>
+      <ul class="nav nav-sidebar" ng-repeat="pub in pubs">
+
+          <li ng-if="pub.enable" ng-class="{active: $state.includes('overview')}"><a ui-sref="overview({ id: pub.id })">{{pub.name}}<span class="sr-only">(current)</span></a></li>
+          <li ng-if="pub.enable" ng-class="{active: $state.includes('pubdrinks')}"><a ui-sref="pubdrinks({ id: pub.id })">Carta de Tragos</a></li>
+          <li ng-if="pub.enable" ng-class="{active: $state.includes('gifts')}"><a ui-sref="gifts({ id: pub.id })">Regalos</a></li>
+          <li ng-if="pub.enable" ng-class="{active: $state.includes('reports')}"><a ui-sref="reports({ id: pub.id })">Reportes</a></li>
+          <li ng-if="pub.enable" class="nav-divider"></li>
+
+      </ul>
+      <div class="col text-center" ng-if="user.super_admin">
+          <button class="btn btn-primary" ui-sref="globalreport">Reporte Global de Ventas</button>
+          <button class="btn btn-primary" ui-sref="newdrink">Tragos</button>
+          <button class="btn btn-primary" ui-sref="pub">Crear Nuevo Pub</button>
+          <button class="btn btn-primary" ui-sref="disabledPub">Disabled Pubs</button>
+          <button class="btn btn-primary" ui-sref="brand">Brand</button>
+		  </div>
+    </div>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ui-view>
+    </div>
+  </div>
+</div>
+</div>

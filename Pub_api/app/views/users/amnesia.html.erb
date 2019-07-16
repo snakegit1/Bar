@@ -1,0 +1,128 @@
+<div class="layout">
+
+    <img src="http://go.box-free.com/images/logos/boxfree_logo_transparente_no_slogan_small.png" alt="logo" /
+    >
+    <h3>Recuperar contraseña</h3>
+
+
+    <% if @error != ""  %>
+        <div class="alert alert-danger">        
+        <%= @error %>
+        </div>
+    <% end %>
+
+    <% if @success != "" %>
+            <div class="alert alert-success">        
+            <%= @success %>
+            </div>
+    <% else %>
+
+        <p><strong> Hola <%=@user.email%>!</strong></p>
+        <p>A travéz del siguiente formulario, podrás generar tu nueva contraseña:</p>
+        <%= form_for :user do |f| %>
+            <p>
+                <%= f.label :password, "Ingrese su nueva contraseña:" %><br />
+                <%= f.password_field :password, class: "text", required: :required %>
+            </p>
+
+            <p>
+                <%= f.label :password_confirmation, "Repita su nueva contraseña:" %><br />
+                <%= f.password_field :password_confirmation, class: "text", required: :required %>
+            </p>
+
+            <p>
+                <%= f.submit "Cambiar contraseña", class: "btn" %>
+            </p>
+        <% end %>
+    <% end %>
+</div>
+
+<style type="text/css">
+    @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600);
+    html{font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+    body {
+        background: #3ca2e0;
+        color:white;
+        text-align:center;
+    }
+    h1{font-size:2em;margin:.67em 0}
+    img {
+        width:200px;
+        margin:0 auto;
+    }
+    p {
+        font-size:12px;
+    }
+
+    p strong {
+        font-size:14px;
+    }
+
+    .layout {
+        width:50%;
+        margin-left:25%;
+    }
+
+    input.text {
+        width:300px;
+        padding:10px;
+        border: 2px solid rgba(255,255,255,.4);
+    }
+
+    input.text {
+        outline: none;
+    }
+
+
+    label {
+        line-height:40px;
+        color:rgba(255,255,255,.7);
+    }
+
+    .btn {
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: 400;
+        text-align: center;
+        vertical-align: middle;
+        touch-action: manipulation;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        white-space: nowrap;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        border-radius: 4px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        padding: 10px 16px;
+        font-size: 18px;
+        line-height: 1.3333333;
+        background: #3ca2e0;
+            box-shadow: 0 0 0 2px rgba(255,255,255,.8) inset;
+    color: rgba(255,255,255,.8);
+    }
+
+    .alert-success {
+        background-color: #dff0d8;
+        border-color: #d0e9c6;
+        color: #3c763d;
+    }
+
+    .alert-danger {
+        background-color: #f2dede;
+        border-color: #ebcccc;
+        color: #a94442;
+    }
+
+    .alert {
+        padding: .75rem 1.25rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: .25rem;
+    }
+
+</style>

@@ -1,0 +1,35 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown" ng-repeat="pub in pubs">
+
+            <a ng-if="pub.enable"  href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{pub.name}} <span class="caret"></span></a>
+            <ul ng-if="pub.enable" class="dropdown-menu">
+              <li ng-if="pub.enable" ng-class="{active: $state.includes('overview')}"><a ui-sref="overview({ id: pub.id })">Datos Generales <span class="sr-only">(current)</span></a></li>
+              <li ng-if="pub.enable" ng-class="{active: $state.includes('pubdrinks')}"><a ui-sref="pubdrinks({ id: pub.id })">Carta de Tragos</a></li>
+              <li ng-if="pub.enable" ng-class="{active: $state.includes('gifts')}"><a ui-sref="gifts({ id: pub.id })">Regalos</a></li>
+              <li ng-if="pub.enable" ng-class="{active: $state.includes('reports')}"><a ui-sref="reports({ id: pub.id })">Reporte de Ventas</a></li>
+            </ul>
+
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+				<li ng-if="user.super_admin"><a ui-sref="pub">Crear nuevo Pub</a></li>
+        <li ng-if="user.super_admin"><a ui-sref="pub">Crear nuevo Trago</a></li>
+        <li><a ng-click="signOut()">Salir</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

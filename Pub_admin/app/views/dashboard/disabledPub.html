@@ -1,0 +1,28 @@
+<div ng-show="allPermissions">
+
+	<div ng-include src="'/views/partials/navbar-menu.html'"></div>
+
+		<h2>Pubs <small></small></h2>
+
+		<div class="panel panel-default">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">Disabled Pubs currently in the system</h3>
+		  </div>
+		  <div class="panel-body">
+				      <table class="table">
+							<tr ng-repeat="pub in disabledPubs">
+								<td>{{pub.name}}
+								</td>
+								<td></td>
+								<td>
+									<div class="btn-group">
+										<button type="button" class="btn btn-default"  ng-click="disablePub(pub.id)">
+											{{pub.enable ? 'Disable' : 'Enable'}}
+										</button>
+									</div>
+								</td>
+							</tr>
+					    </table>
+	</div>
+</div>
+</div>

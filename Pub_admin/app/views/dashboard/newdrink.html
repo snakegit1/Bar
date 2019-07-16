@@ -1,0 +1,130 @@
+<div ng-show="allPermissions">
+
+	<div ng-include src="'/views/partials/navbar-menu.html'"></div>
+
+		<h2>Tragos <small></small></h2>
+
+		<div class="panel panel-default">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">Tragos actualmente en el sistema</h3>
+		  </div>
+		  <div class="panel-body">
+        <uib-accordion>
+					<uib-accordion-group ng-repeat="drink_category in drink_categories">
+				      <uib-accordion-heading>
+				         {{drink_category.name}} ({{drink_category.drinks.length}})
+								 <i class="glyphicon red" ng-class="" style="color: red;">{{drink_category.enable ? '' : 'Disabled'}}</i>
+								 <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+				      </uib-accordion-heading>
+				      <table class="table">
+							<tr ng-repeat="drink in drink_category.drinks">
+								<td>
+									<img width="100px" height="100px" src="{{url+drink.image_url}}"/>
+								</td>
+								<td>{{drink.name}}
+								 <i class="glyphicon red" ng-class="" style="color: red;">{{drink.enable ? '' : 'Disabled'}}</i>
+								</td>
+								<td></td>
+								<td>
+									<div class="btn-group">
+										<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											Opciones <span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu">
+											<li><a href="" ng-click="createNewDrink(drink)"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Editar</a></li>
+											<li role="separator" class="divider"></li>
+											<li><a href="" ng-click="disableDrink(drink.id)"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> {{drink.enable ? 'Disable' : 'Enable'}}</a></li>
+										</ul>
+									</div>
+								</td>
+							</tr>
+					    </table>
+							<div class="col text-center">
+								<button type="button" class="btn btn-primary" ng-click="createNewDrinkCategory(drink_category)">Editar {{drink_category.name}}</button>
+								<button type="button" class="btn btn-danger" ng-click="disableDrinkCategory(drink_category.id)">{{ drink_category.enable ? 'Disable' : 'Enable' }} {{drink_category.name}}</button>
+							</div>
+				    </uib-accordion-group>
+				</uib-accordion>
+		</div>
+	</div>
+	<div class="col text-center">
+		<button type="button" class="btn btn-primary" ng-click="createNewDrink()">Nuevo Trago</button>
+		<button type="button" class="btn btn-primary" ng-click="createNewDrinkCategory()">Nueva Categoría</button>
+	</div>
+</div>
+
+<script type="text/ng-template" id="newDrinkModalContent.html">
+
+      <div class="modal-header">
+        <h4 ng-if="editing" class="modal-title" id="exampleModalLabel">Editar Trago {{drink.name}}</h4>
+				<h4 ng-if="!editing" class="modal-title" id="exampleModalLabel">Crear un Nuevo Trago</h4>
+      </div>
+
+      <div class="modal-body">
+
+        <form name="newDrinkForm">
+
+        	<div class="form-group" ng-if="!editing">
+	        	<label class="item item-input item-select">
+			        <div class="input-label">
+			          Categoría
+			        </div>
+							<ol class="nya-bs-select" ng-model="drink.category" title="Selecciona un categoría" require>
+		            <li nya-bs-option="drink_category in drink_categories">
+		              <a>
+		                {{drink_category.name}}
+		              </a>
+		            </li>
+		          </ol>
+			   		</label>
+					</div>
+
+          <div class="form-group" show-errors>
+            <label for="message-text" class="control-label">Nombre:</label>
+            <input type="text" class="form-control" name="name" id="name" ng-model="drink.name" style="width: 250px;" required="">
+    			  <span ng-show="newDrinkForm.name.$error.required">Obligatorio!</span>
+          </div>
+
+					<div class="form-group">
+            <input type="file" class="form-control" name="image_file_name"><br>
+          </div>
+
+        </form>
+
+      </div>
+      <div class="modal-footer">
+      	<button ng-show="!editing" class="btn btn-primary" type="button" ng-click="createNewDrink(drink)">Agregar</button>
+				<button ng-show="editing" class="btn btn-primary" type="button" ng-click="editDrink(drink)">Editar</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancelar</button>
+      </div>
+
+</script>
+
+
+<script type="text/ng-template" id="newDrinkCategoryModalContent.html">
+
+      <div class="modal-header">
+        <h4 ng-if="!editing" class="modal-title" id="exampleModalLabel">Crear Nueva Categoría</h4>
+				<h4 ng-if="editing" class="modal-title" id="exampleModalLabel">Editar Categoría</h4>
+      </div>
+
+      <div class="modal-body">
+
+        <form name="newDrinkCategoryForm">
+
+          <div class="form-group" show-errors>
+            <label for="message-text" class="control-label">Nombre:</label>
+            <input type="text" class="form-control" name="name" id="name" ng-model="drink_category.name" style="width: 250px;" required>
+    			  <span ng-show="newDrinkForm.name.$error.required">Obligatorio!</span>
+          </div>
+
+        </form>
+
+      </div>
+      <div class="modal-footer">
+      	<button ng-show="!editing" class="btn btn-primary" type="button" ng-disabled="!newDrinkCategoryForm.$valid" ng-click="newDrinkCategory(drink_category)">Agregar</button>
+				<button ng-show="editing" class="btn btn-primary" type="button" ng-disabled="!newDrinkCategoryForm.$valid" ng-click="editDrinkCategory(drink_category)">Editar</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancelar</button>
+      </div>
+
+</script>

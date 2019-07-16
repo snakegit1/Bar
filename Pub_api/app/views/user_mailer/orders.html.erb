@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+  <p><%=image_tag(URI.join("http://api.box-free.com", @order.pub.image_logo.url(:thumb)).to_s, alt: @order.pub.name, width: "100") %></p>
+  <h1>Comprobante de compra</h1>  
+  <ul>
+    <li><strong>Bar:</strong> <%=@order.pub.name %></li>
+    <li><strong>Rol tributario:</strong> <%=@order.pub.bank_account_rut %></li>
+    <li><strong>Fecha:</strong> <%=@order.created_at.strftime("%d-%M-%Y") %></li>
+    <li><strong>Hora:</strong> <%=@order.created_at.strftime("%H:%M") %></li>
+    <li><strong>Dirección IP:</strong> <%=@order.ip %></li>
+    <li><strong>Total Pagado:</strong> <%= number_to_currency(@order.price, :unit => "$", :delimiter => ".", :precision => 0) %> CLP</li>
+    <li><strong>Numero de transacción:</strong> #<%=@order.id %></li>
+  </ul>
+
+  <h3>Detalle de su compra</h3>
+  <table cellpadding="10">
+    <tbody>    
+        <% @order.orders_drink.each do |order_drink| %>
+        <tr>
+            <td><%=order_drink.drink.name%></td>
+            <td> x <%=order_drink.quantity.to_i%></td>
+            <td><%=number_to_currency(order_drink.price, :unit => "$", :delimiter => ".", :precision => 0)%> CLP</td>
+            <td><%=number_to_currency( (order_drink.quantity*order_drink.price), :unit => "$", :delimiter => ".", :precision => 0)%> CLP</td>
+        </tr>
+        <% end %>        
+    </tbody>
+  </table>
+
+  <p><strong>Gracias por usar Box-Free <%=@order.user.name.to_s + " " + @order.user.lastname.to_s %></strong></p>
+  <p>Comprobante válido como boleta.</p>
+  <hr />
+  <p>
+  <%=image_tag("http://go.box-free.com/images/logos/boxfree_logo_transparente_no_slogan_small.png", alt: "", width: 40) %> <br />
+  Powered by Boxfree
+  </p>  
+  </body>
+</html>

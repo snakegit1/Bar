@@ -1,0 +1,797 @@
+
+---
+drink_categories:
+  columns:
+  - id
+  - name
+  - description
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Pisco
+    - 
+    - '2016-06-18 13:23:08.192591'
+    - '2016-06-18 13:23:08.192591'
+  - - 2
+    - Ron
+    - 
+    - '2016-06-18 13:23:08.199813'
+    - '2016-06-18 13:23:08.199813'
+  - - 3
+    - Tequila
+    - 
+    - '2016-06-18 13:23:08.205623'
+    - '2016-06-18 13:23:08.205623'
+  - - 4
+    - Pisco Sour
+    - 
+    - '2016-06-18 13:23:08.210566'
+    - '2016-06-18 13:23:08.210566'
+  - - 5
+    - Whiskey
+    - 
+    - '2016-06-29 21:12:34.050197'
+    - '2016-06-29 23:01:18.388184'
+  - - 6
+    - Cerveza
+    - 
+    - '2016-06-29 23:02:54.256945'
+    - '2016-06-29 23:02:54.256945'
+  - - 7
+    - Botella
+    - 
+    - '2016-06-29 23:03:15.297788'
+    - '2016-06-29 23:03:15.297788'
+
+---
+drinks:
+  columns:
+  - id
+  - name
+  - description
+  - image_file_name
+  - image_content_type
+  - image_file_size
+  - image_updated_at
+  - created_at
+  - updated_at
+  - drink_category_id
+  records: 
+  - - 1
+    - Mistral 35°
+    - Pisco Mistral 35°
+    - mistral-35.jpg
+    - image/jpeg
+    - 106201
+    - '2016-06-18 13:23:25.550606'
+    - '2016-06-18 13:23:08.230733'
+    - '2016-06-18 13:23:25.851832'
+    - 1
+  - - 2
+    - Alto del Carmen 35°
+    - Pisco Alto del Carmen 35°
+    - alto-del-carmen-35.jpg
+    - image/jpeg
+    - 83240
+    - '2016-06-18 13:23:25.878052'
+    - '2016-06-18 13:23:08.569631'
+    - '2016-06-18 13:23:26.020920'
+    - 1
+  - - 3
+    - Capel 35°
+    - Pisco Capel 35°
+    - capel-35.jpg
+    - image/jpeg
+    - 11959
+    - '2016-06-18 13:23:26.047451'
+    - '2016-06-18 13:23:08.735725'
+    - '2016-06-18 13:23:26.158811'
+    - 1
+  - - 4
+    - Ruta Norte 35°
+    - Pisco Ruta Norte 35°
+    - ruta-norte-35.jpg
+    - image/jpeg
+    - 9395
+    - '2016-06-18 13:23:26.186492'
+    - '2016-06-18 13:23:08.865602'
+    - '2016-06-18 13:23:26.278932'
+    - 1
+  - - 5
+    - Pampero
+    - Ron Pampero Normal
+    - pampero.jpg
+    - image/jpeg
+    - 7514
+    - '2016-06-18 13:23:26.317271'
+    - '2016-06-18 13:23:08.966553'
+    - '2016-06-18 13:23:26.408246'
+    - 2
+  - - 6
+    - Havana Club
+    - Ron Havana Club
+    - havana-club.png
+    - image/png
+    - 54957
+    - '2016-06-18 13:23:26.432577'
+    - '2016-06-18 13:23:09.070159'
+    - '2016-06-18 13:23:26.588811'
+    - 2
+  - - 7
+    - Havana Club Añejo
+    - Ron Havana Club Añejo
+    - havana-club-añejo.jpg
+    - image/jpeg
+    - 226150
+    - '2016-06-18 13:23:26.617724'
+    - '2016-06-18 13:23:09.248817'
+    - '2016-06-18 13:23:26.979319'
+    - 2
+  - - 8
+    - Cacique
+    - Ron Cacique
+    - cacique.jpg
+    - image/jpeg
+    - 8413
+    - '2016-06-18 13:23:27.012775'
+    - '2016-06-18 13:23:09.628968'
+    - '2016-06-18 13:23:27.112675'
+    - 2
+  - - 9
+    - José Cuervo
+    - Tequila José Cuervo
+    - jose-cuervo.jpg
+    - image/jpeg
+    - 22865
+    - '2016-06-18 13:23:27.156419'
+    - '2016-06-18 13:23:09.743956'
+    - '2016-06-18 13:23:27.279006'
+    - 3
+  - - 10
+    - Margarita
+    - Clasico Tequila Margarita
+    - margarita.jpg
+    - image/jpeg
+    - 9988
+    - '2016-06-18 13:23:27.319780'
+    - '2016-06-18 13:23:09.885288'
+    - '2016-06-18 13:23:27.430990'
+    - 3
+  - - 11
+    - Sun Rise
+    - Tequila Sun Rise
+    - sunrise.jpg
+    - image/jpeg
+    - 131072
+    - '2016-06-18 13:23:27.475360'
+    - '2016-06-18 13:23:10.012655'
+    - '2016-06-18 13:23:27.647867'
+    - 3
+  - - 12
+    - Campanario
+    - Pisco Sour Campanario
+    - campanario.jpg
+    - image/jpeg
+    - 14718
+    - '2016-06-18 13:23:27.689959'
+    - '2016-06-18 13:23:10.207882'
+    - '2016-06-18 13:23:27.825758'
+    - 4
+  - - 13
+    - Campanario Light
+    - Pisco Sour Campanario Light
+    - campanario-light.jpg
+    - image/jpeg
+    - 12181
+    - '2016-06-18 13:23:27.854233'
+    - '2016-06-18 13:23:10.372389'
+    - '2016-06-18 13:23:27.942120'
+    - 4
+  - - 14
+    - Capel
+    - Pisco Sour Capel
+    - capel.jpg
+    - image/jpeg
+    - 19257
+    - '2016-06-18 13:23:27.968476'
+    - '2016-06-18 13:23:10.485137'
+    - '2016-06-18 13:23:28.049371'
+    - 4
+  - - 15
+    - Artesanos del Cochiguaz
+    - Pisco Sour Cochiguaz
+    - cochiguaz.jpg
+    - image/jpeg
+    - 53365
+    - '2016-06-18 13:23:28.075983'
+    - '2016-06-18 13:23:10.604298'
+    - '2016-06-18 13:23:28.215226'
+    - 4
+  - - 17
+    - Mistral 40°
+    - 
+    - 
+    - 
+    - 
+    - 
+    - '2016-06-29 22:59:50.406248'
+    - '2016-06-29 22:59:58.836648'
+    - 1
+  - - 18
+    - Alto del Carmen 40°
+    - 
+    - 
+    - 
+    - 
+    - 
+    - '2016-06-29 23:00:11.602332'
+    - '2016-06-29 23:00:11.602332'
+    - 1
+  - - 19
+    - Johnnie Walker
+    - 
+    - 
+    - 
+    - 
+    - 
+    - '2016-06-29 23:02:03.305498'
+    - '2016-06-29 23:02:03.305498'
+    - 5
+  - - 20
+    - Corona
+    - 
+    - 
+    - 
+    - 
+    - 
+    - '2016-06-29 23:03:01.301939'
+    - '2016-06-29 23:03:01.301939'
+    - 6
+  - - 21
+    - Cristal
+    - 
+    - 
+    - 
+    - 
+    - 
+    - '2016-06-29 23:03:10.679044'
+    - '2016-06-29 23:03:10.679044'
+    - 6
+  - - 22
+    - Mistral 35°
+    - 
+    - 
+    - 
+    - 
+    - 
+    - '2016-06-29 23:03:31.434454'
+    - '2016-06-29 23:04:00.895728'
+    - 7
+  - - 23
+    - Alto del Carmen 35°
+    - 
+    - 
+    - 
+    - 
+    - 
+    - '2016-06-29 23:03:46.730543'
+    - '2016-06-29 23:04:08.265660'
+    - 7
+
+---
+pub_drinks:
+  columns:
+  - id
+  - price
+  - description
+  - drink_id
+  - pub_id
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - 601
+    - 
+    - 5
+    - 2
+    - '2016-06-18 13:24:08.304877'
+    - '2016-06-18 13:38:18.375368'
+  - - 2
+    - 1300
+    - 
+    - 2
+    - 1
+    - '2016-06-18 13:31:52.394125'
+    - '2017-05-18 20:08:38.460764'
+  - - 3
+    - 1900
+    - 
+    - 5
+    - 1
+    - '2016-06-18 13:36:03.038796'
+    - '2016-06-18 17:49:11.208759'
+  - - 4
+    - 2331
+    - 
+    - 10
+    - 1
+    - '2016-06-18 13:38:32.047128'
+    - '2016-06-18 16:07:56.712016'
+  - - 8
+    - 1200
+    - 
+    - 3
+    - 1
+    - '2016-06-18 15:08:00.804650'
+    - '2016-06-18 15:08:00.804650'
+  - - 13
+    - 3500
+    - 
+    - 4
+    - 1
+    - '2016-06-18 16:05:42.720912'
+    - '2016-06-18 16:05:42.720912'
+  - - 14
+    - 2222
+    - 
+    - 3
+    - 1
+    - '2016-06-18 16:08:21.907615'
+    - '2016-06-18 16:08:21.907615'
+  - - 17
+    - 2000
+    - 
+    - 3
+    - 1
+    - '2016-06-18 16:24:36.525667'
+    - '2016-06-29 12:52:53.667674'
+  - - 23
+    - 3500
+    - 
+    - 2
+    - 3
+    - '2016-06-29 22:59:16.570197'
+    - '2016-06-30 13:27:29.425279'
+  - - 24
+    - 3500
+    - 
+    - 1
+    - 3
+    - '2016-06-29 22:59:24.202002'
+    - '2016-06-29 22:59:24.202002'
+  - - 25
+    - 4000
+    - 
+    - 17
+    - 3
+    - '2016-06-29 23:00:21.795349'
+    - '2016-06-29 23:00:21.795349'
+  - - 26
+    - 4000
+    - 
+    - 18
+    - 3
+    - '2016-06-29 23:00:31.013843'
+    - '2016-06-29 23:00:31.013843'
+  - - 27
+    - 4500
+    - 
+    - 5
+    - 3
+    - '2016-06-29 23:00:42.991542'
+    - '2016-06-29 23:00:42.991542'
+  - - 28
+    - 5000
+    - 
+    - 19
+    - 3
+    - '2016-06-29 23:04:41.485368'
+    - '2016-06-29 23:04:41.485368'
+  - - 29
+    - 2500
+    - 
+    - 20
+    - 3
+    - '2016-06-29 23:04:53.208130'
+    - '2016-06-29 23:04:53.208130'
+  - - 30
+    - 2000
+    - 
+    - 21
+    - 3
+    - '2016-06-29 23:05:04.881196'
+    - '2016-06-29 23:05:04.881196'
+  - - 31
+    - 35000
+    - 
+    - 22
+    - 3
+    - '2016-06-29 23:05:17.385020'
+    - '2016-06-29 23:05:17.385020'
+  - - 32
+    - 30000
+    - 
+    - 23
+    - 3
+    - '2016-06-29 23:05:25.074703'
+    - '2016-06-29 23:05:25.074703'
+  - - 33
+    - 3600
+    - 
+    - 15
+    - 2
+    - '2016-06-30 12:01:31.636951'
+    - '2016-06-30 13:51:52.597977'
+
+---
+pubs:
+  columns:
+  - id
+  - name
+  - description
+  - telephone1
+  - telephone2
+  - location
+  - created_at
+  - updated_at
+  - image_logo_file_name
+  - image_logo_content_type
+  - image_logo_file_size
+  - image_logo_updated_at
+  - user_id
+  - bank_name
+  - bank_account_type
+  - bank_account_number
+  - bank_account_rut
+  - bank_account_email
+  - order_index
+  records: 
+  - - 1
+    - Ex Amanda
+    - Centro Cultural
+    - 
+    - 
+    - Direccion ...22
+    - '2016-06-18 13:23:08.072263'
+    - '2016-06-29 14:57:54.563094'
+    - amanda-logo.png
+    - image/png
+    - 14705
+    - '2016-06-18 13:23:07.968416'
+    - 1
+    - Banco De Chile
+    - Cuenta Vista
+    - '123123'
+    - asdasd
+    - asdasd@adasdasd
+    - 2
+  - - 2
+    - Candelaria
+    - Candelaria ...
+    - 
+    - 
+    - Sin direc...
+    - '2016-06-18 13:23:08.169742'
+    - '2017-05-18 20:06:46.376907'
+    - candelaria-logo.png
+    - image/png
+    - 8656
+    - '2017-05-18 20:06:46.338286'
+    - 2
+    - Banco De Chile
+    - Cuenta Vista
+    - asdasdads
+    - asdasdasd
+    - dasdadasd@dasdasd.com
+    - 1
+  - - 3
+    - Ovo
+    - Dirección...
+    - 
+    - 
+    - 
+    - '2016-06-18 13:38:50.953870'
+    - '2017-05-18 20:40:43.749749'
+    - OvoPremio_Grande.png
+    - image/png
+    - 24469
+    - '2017-05-18 20:40:43.699613'
+    - 2
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 0
+
+---
+users:
+  columns:
+  - id
+  - provider
+  - uid
+  - encrypted_password
+  - reset_password_token
+  - reset_password_sent_at
+  - remember_created_at
+  - sign_in_count
+  - current_sign_in_at
+  - last_sign_in_at
+  - current_sign_in_ip
+  - last_sign_in_ip
+  - confirmation_token
+  - confirmed_at
+  - confirmation_sent_at
+  - unconfirmed_email
+  - name
+  - nickname
+  - image
+  - email
+  - tokens
+  - created_at
+  - updated_at
+  - admin
+  - super_admin
+  - lastname
+  records: 
+  - - 1
+    - email
+    - admin1@boxfree.com
+    - "$2a$10$UUR5PxwcfsyLUVYxpLpb0OcUNPE0rZfEIzFmjk9lrZOmno0/I85YO"
+    - 
+    - 
+    - 
+    - 16
+    - '2017-06-08 23:38:07.779986'
+    - '2017-05-23 14:52:19.169435'
+    - 190.161.129.202
+    - 200.104.168.150
+    - yms1_1isprYErepMuJvy
+    - '2016-06-18 13:23:07.725786'
+    - '2016-06-18 13:23:07.717502'
+    - 
+    - Admin 1
+    - 
+    - 
+    - admin1@boxfree.com
+    - '{"3Gk6dD13yUIiP7xhkDbG2g":{"token":"$2a$10$Cti2Ji0fi7jSXe/FuM.k9ezdKubb0S4NAFXLcKu2wkwZQkEWBBpve","expiry":1498174687}}'
+    - '2016-06-18 13:23:07.497429'
+    - '2017-06-08 23:38:07.780754'
+    - true
+    - false
+    - ''
+  - - 2
+    - email
+    - admin2@boxfree.com
+    - "$2a$10$eJRg9h7kbV16hlO.MoflGuGsauGD.L7rLpKmkIYOp8MKN4Hy83umG"
+    - 
+    - 
+    - 
+    - 10
+    - '2016-07-01 23:18:05.907375'
+    - '2016-06-30 13:55:23.743066'
+    - 201.215.4.116
+    - 190.44.26.236
+    - zz1RPr2fKTfVstxijGwj
+    - '2016-06-18 13:23:07.836081'
+    - '2016-06-18 13:23:07.825718'
+    - 
+    - Admin 2
+    - 
+    - 
+    - admin2@boxfree.com
+    - '{"RKrcGRLG_0RPiLf66dM2fQ":{"token":"$2a$10$rrl3um/hMCxmefz1lQUaeudfdWspv6fOIL1yt77zd1Rb1khwY1EGG","expiry":1468624685}}'
+    - '2016-06-18 13:23:07.824728'
+    - '2016-07-01 23:18:05.908865'
+    - true
+    - false
+    - ''
+  - - 3
+    - email
+    - superadmin@boxfree.com
+    - "$2a$10$jgXmsb7lGkyq4MXNGG8h5.EdQjEVK1y0REInCMNXNp3K6T7/Y7jZK"
+    - 
+    - 
+    - 
+    - 35
+    - '2017-06-06 19:22:23.549172'
+    - '2017-06-06 19:21:39.267570'
+    - 200.120.108.8
+    - 200.120.108.8
+    - dLMT7KEhByZ6uXbqJFyw
+    - '2016-06-18 13:23:07.934573'
+    - '2016-06-18 13:23:07.927467'
+    - 
+    - 
+    - 
+    - 
+    - superadmin@boxfree.com
+    - '{"MVMFAo7xit1WrGTPuukE2A":{"token":"$2a$10$5zXR5ryuhBB7WCVlMgJHhecd/UABMe9joDodZ42Jgyx2QBrNw0Dqq","expiry":1497986499},"nNnXi1bcbKvJ2YxlatRDbg":{"token":"$2a$10$k5oIqrH3j/cfyiZKaBdeFuhbpbQI8aUVrEzFgVutrI6c0axCPPxJC","expiry":1497986543}}'
+    - '2016-06-18 13:23:07.926329'
+    - '2017-06-06 19:22:23.549867'
+    - false
+    - true
+    - 
+  - - 11
+    - email
+    - fmaier@gmail.com
+    - "$2a$10$lmNhMhSTG8wGezMs3ms39O/quL2GOQsqnEt.g9EescGUshzLhxAC6"
+    - 
+    - 
+    - 
+    - 17
+    - '2017-05-19 10:53:55.510864'
+    - '2017-05-18 21:39:52.349750'
+    - 201.239.50.45
+    - 200.83.227.228
+    - uMw_tvYzUF2qGzywphpT
+    - '2016-06-18 18:02:30.459079'
+    - '2016-06-18 18:02:30.452756'
+    - 
+    - Felipe
+    - 
+    - 
+    - fmaier@gmail.com
+    - '{"xeeOfTa10rJSUo27i4vNQw":{"token":"$2a$10$crpUdwSPTozd0calWLgKzeBDLh43F3VtFr36RT7jcT0jpg8jK.PIq","expiry":1496349553},"pb-L8BYU4HWL0zJbKKjvwQ":{"token":"$2a$10$1kvCNm2H7w2zHtfNYxnq1uECsik.ICB3WJTMwsKmfeAg8mEYRIhtS","expiry":1496353192},"ShOjFU12j4YpjylxNsqE4w":{"token":"$2a$10$ASIWSXYZR1lSoKnuc8pks.ga4Aq7WkhoLSGD0DK3URNwCJD78Tu7O","expiry":1496400835}}'
+    - '2016-06-18 18:02:30.451390'
+    - '2017-05-19 10:53:55.511616'
+    - false
+    - false
+    - Maier
+  - - 17
+    - email
+    - fmaier2@gmail.com
+    - "$2a$10$qS04IbPKDFJrUs8BE/yPT.Q1E0TZ3TCNmi5WZxLjxQ9Bb.LDKkzJW"
+    - 
+    - 
+    - 
+    - 0
+    - 
+    - 
+    - 
+    - 
+    - roSyKj2Dym5kZr2jTU8n
+    - 
+    - '2017-05-18 21:25:57.617201'
+    - 
+    - 
+    - 
+    - 
+    - fmaier2@gmail.com
+    - "{}"
+    - '2017-05-18 21:25:57.435908'
+    - '2017-05-18 21:25:57.435908'
+    - false
+    - false
+    - 
+  - - 18
+    - email
+    - fmaier3@gmail.com
+    - "$2a$10$tJPxD2WEGCAU5Ul.TXteY..NTNBqFm9IG/z5u2ZCZeMrD3y46QJta"
+    - 
+    - 
+    - 
+    - 0
+    - 
+    - 
+    - 
+    - 
+    - BLBLyBsgNu6DKzr-XQSx
+    - 
+    - '2017-05-18 21:31:32.709934'
+    - 
+    - 
+    - 
+    - 
+    - fmaier3@gmail.com
+    - "{}"
+    - '2017-05-18 21:31:32.526181'
+    - '2017-05-18 21:31:32.526181'
+    - false
+    - false
+    - 
+  - - 19
+    - email
+    - fmaier4@gmail.com
+    - "$2a$10$iLSXHBdBdTsfuXqkMyDm4.in09zJDDQ8ncItzDiP/FiuOXyIaW3uq"
+    - 
+    - 
+    - 
+    - 0
+    - 
+    - 
+    - 
+    - 
+    - UGjx_2qoepHxQXrTsr57
+    - 
+    - '2017-05-18 21:33:35.978670'
+    - 
+    - 
+    - 
+    - 
+    - fmaier4@gmail.com
+    - "{}"
+    - '2017-05-18 21:33:35.792971'
+    - '2017-05-18 21:33:35.792971'
+    - false
+    - false
+    - 
+  - - 20
+    - email
+    - fmaier+test@gmail.com
+    - "$2a$10$zh1gB0jLtIU2xVov46nXTu.Ah60HtImnLp6GWHXmiE5dyOVDwODWW"
+    - 
+    - 
+    - 
+    - 0
+    - 
+    - 
+    - 
+    - 
+    - xugPmYVAkL335Me-7KQB
+    - '2017-05-18 21:39:39.006250'
+    - '2017-05-18 21:35:10.001681'
+    - 
+    - 
+    - 
+    - 
+    - fmaier+test@gmail.com
+    - '{"Sldxh5B4YXiPiEbQbF5AFw":{"token":"$2a$10$cSLQdPzmRIOg.xuLL1VEIulOCayHIXYxouhfMln0Kcj.nGfvj6STO","expiry":1496353179}}'
+    - '2017-05-18 21:35:09.812976'
+    - '2017-05-18 21:39:39.090626'
+    - false
+    - false
+    - 
+  - - 21
+    - email
+    - bmadain@gmail.com
+    - "$2a$10$Bu8T74vqhmTSX43tpNpgBe4368m65/R3Do0KVa5qZbjALfTC0uTjm"
+    - 
+    - 
+    - 
+    - 2
+    - '2017-06-08 23:25:29.660807'
+    - '2017-05-24 03:14:51.913878'
+    - 186.9.134.53
+    - 186.9.128.119
+    - TgG5JHtasVUevEMsHso7
+    - '2017-05-24 03:14:40.768590'
+    - '2017-05-24 03:14:11.245477'
+    - 
+    - 
+    - 
+    - 
+    - bmadain@gmail.com
+    - '{"QbIJrElVd9_lyXtVx4egxQ":{"token":"$2a$10$2LtwuOXAz08eJu0CLpPzT.DimNZyT75qZzJ3cdKpP21svFJwsBcNe","expiry":1498173929}}'
+    - '2017-05-24 03:14:11.244172'
+    - '2017-06-08 23:25:29.661596'
+    - false
+    - false
+    - 
+  - - 22
+    - email
+    - pablo.ibanezd@gmail.com
+    - "$2a$10$hDc0pAsOYZBM3vMIVZUSkuaxAnIEQMoWvlSJVp1t0fMmd1j0IJek."
+    - 
+    - 
+    - 
+    - 1
+    - '2017-06-01 23:20:10.229948'
+    - '2017-06-01 23:20:10.229948'
+    - 201.215.30.246
+    - 201.215.30.246
+    - _gcpN9sGfQzTpS5UN6yE
+    - '2017-06-01 23:19:43.121061'
+    - '2017-06-01 23:17:53.701456'
+    - 
+    - 
+    - 
+    - 
+    - pablo.ibanezd@gmail.com
+    - '{"YcTVQArgRaw6dxisTKccnQ":{"token":"$2a$10$ClFlyGuE9bfgl16FG7gCFu1hlGYeTk0PpS59Y6iH..5BzLAHT2vNC","expiry":1497568783},"c_geaIloLBD6zBajSAl6ew":{"token":"$2a$10$XGt4wLo2zwTblahGLbp1VOEA7jKV7OFA.fFg5NAeBOM3bQRRgStrq","expiry":1497568810}}'
+    - '2017-06-01 23:17:53.520463'
+    - '2017-06-01 23:20:10.230744'
+    - false
+    - false
+    - 

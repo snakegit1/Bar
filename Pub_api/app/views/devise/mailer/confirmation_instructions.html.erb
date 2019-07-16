@@ -1,0 +1,15 @@
+<p><%= t(:welcome).capitalize + ' ' + @email %>!</p>
+
+<p><%= t '.confirm_link_msg' %> </p>
+
+	<%
+		if Rails.env.development?
+			ip = 'localhost:3000'
+		else
+			ip = '52.14.157.42:8080'
+		end
+	%>
+
+
+
+<p><%= link_to t('.confirm_account_link'), 'http://'+ ip +'/api/auth/confirmation?config=default&confirmation_token='+ @token + '&redirect_url=http://52.14.157.42:8080/mobile/index' %>

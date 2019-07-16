@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Bienvenido, <%= @user.name %></h1>
+    <p>
+      Has sido asignado como administrador en BoxFree,
+      bajo el correo: <%= @user.email %>.<br>
+    </p>
+    <p>
+      Para iniciar sesión sigue el siguiente link: <%= @url %>.
+    </p>
+    <p>El equipo de BoxFree!</p>
+  </body>
+</html>

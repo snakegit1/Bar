@@ -1,0 +1,82 @@
+I, [2017-05-18T19:41:03.567139 #16626]  INFO -- : Refreshing Gem list
+/home/rails/boxfree-api/config/environments/production.rb:97: warning: already initialized constant OpenSSL::SSL::VERIFY_PEER
+I, [2017-05-18T19:41:05.602340 #16626]  INFO -- : listening on addr=/home/rails/boxfree-api/shared/sockets/unicorn.sock fd=12
+I, [2017-05-18T19:41:05.602442 #16626]  INFO -- : worker=0 spawning...
+I, [2017-05-18T19:41:05.603466 #16626]  INFO -- : worker=1 spawning...
+I, [2017-05-18T19:41:05.604051 #16626]  INFO -- : worker=2 spawning...
+I, [2017-05-18T19:41:05.604609 #16629]  INFO -- : worker=0 spawned pid=16629
+I, [2017-05-18T19:41:05.604814 #16629]  INFO -- : worker=0 ready
+I, [2017-05-18T19:41:05.605456 #16626]  INFO -- : worker=3 spawning...
+I, [2017-05-18T19:41:05.606038 #16631]  INFO -- : worker=1 spawned pid=16631
+I, [2017-05-18T19:41:05.606132 #16631]  INFO -- : worker=1 ready
+I, [2017-05-18T19:41:05.606767 #16626]  INFO -- : master process ready
+I, [2017-05-18T19:41:05.611082 #16634]  INFO -- : worker=2 spawned pid=16634
+I, [2017-05-18T19:41:05.611191 #16634]  INFO -- : worker=2 ready
+I, [2017-05-18T19:41:05.614033 #16637]  INFO -- : worker=3 spawned pid=16637
+I, [2017-05-18T19:41:05.614135 #16637]  INFO -- : worker=3 ready
+I, [2017-05-18T21:18:32.300290 #16626]  INFO -- : reaped #<Process::Status: pid 16629 exit 0> worker=0
+I, [2017-05-18T21:18:32.300405 #16626]  INFO -- : reaped #<Process::Status: pid 16631 exit 0> worker=1
+I, [2017-05-18T21:18:32.300461 #16626]  INFO -- : reaped #<Process::Status: pid 16634 exit 0> worker=2
+I, [2017-05-18T21:18:32.300514 #16626]  INFO -- : reaped #<Process::Status: pid 16637 exit 0> worker=3
+I, [2017-05-18T21:18:32.300559 #16626]  INFO -- : master complete
+I, [2017-05-18T21:18:35.695261 #21628]  INFO -- : Refreshing Gem list
+/home/rails/boxfree-api/config/environments/production.rb:97: warning: already initialized constant OpenSSL::SSL::VERIFY_PEER
+I, [2017-05-18T21:18:37.363588 #21628]  INFO -- : unlinking existing socket=/home/rails/boxfree-api/shared/sockets/unicorn.sock
+I, [2017-05-18T21:18:37.364236 #21628]  INFO -- : listening on addr=/home/rails/boxfree-api/shared/sockets/unicorn.sock fd=12
+I, [2017-05-18T21:18:37.364327 #21628]  INFO -- : worker=0 spawning...
+I, [2017-05-18T21:18:37.365399 #21628]  INFO -- : worker=1 spawning...
+I, [2017-05-18T21:18:37.366025 #21628]  INFO -- : worker=2 spawning...
+I, [2017-05-18T21:18:37.366530 #21631]  INFO -- : worker=0 spawned pid=21631
+I, [2017-05-18T21:18:37.366646 #21631]  INFO -- : worker=0 ready
+I, [2017-05-18T21:18:37.367287 #21628]  INFO -- : worker=3 spawning...
+I, [2017-05-18T21:18:37.367705 #21633]  INFO -- : worker=1 spawned pid=21633
+I, [2017-05-18T21:18:37.367807 #21633]  INFO -- : worker=1 ready
+I, [2017-05-18T21:18:37.368445 #21628]  INFO -- : master process ready
+I, [2017-05-18T21:18:37.372643 #21636]  INFO -- : worker=2 spawned pid=21636
+I, [2017-05-18T21:18:37.372773 #21636]  INFO -- : worker=2 ready
+I, [2017-05-18T21:18:37.374054 #21639]  INFO -- : worker=3 spawned pid=21639
+I, [2017-05-18T21:18:37.374278 #21639]  INFO -- : worker=3 ready
+I, [2017-05-18T21:31:19.888682 #21628]  INFO -- : reaped #<Process::Status: pid 21631 exit 0> worker=0
+I, [2017-05-18T21:31:19.888784 #21628]  INFO -- : reaped #<Process::Status: pid 21633 exit 0> worker=1
+I, [2017-05-18T21:31:19.888825 #21628]  INFO -- : reaped #<Process::Status: pid 21636 exit 0> worker=2
+I, [2017-05-18T21:31:19.888901 #21628]  INFO -- : reaped #<Process::Status: pid 21639 exit 0> worker=3
+I, [2017-05-18T21:31:19.888949 #21628]  INFO -- : master complete
+I, [2017-05-18T21:31:21.349618 #21758]  INFO -- : Refreshing Gem list
+/home/rails/boxfree-api/config/environments/production.rb:97: warning: already initialized constant OpenSSL::SSL::VERIFY_PEER
+I, [2017-05-18T21:31:23.014198 #21758]  INFO -- : unlinking existing socket=/home/rails/boxfree-api/shared/sockets/unicorn.sock
+I, [2017-05-18T21:31:23.014319 #21758]  INFO -- : listening on addr=/home/rails/boxfree-api/shared/sockets/unicorn.sock fd=12
+I, [2017-05-18T21:31:23.014394 #21758]  INFO -- : worker=0 spawning...
+I, [2017-05-18T21:31:23.015457 #21758]  INFO -- : worker=1 spawning...
+I, [2017-05-18T21:31:23.016043 #21758]  INFO -- : worker=2 spawning...
+I, [2017-05-18T21:31:23.016771 #21761]  INFO -- : worker=0 spawned pid=21761
+I, [2017-05-18T21:31:23.016874 #21761]  INFO -- : worker=0 ready
+I, [2017-05-18T21:31:23.017521 #21758]  INFO -- : worker=3 spawning...
+I, [2017-05-18T21:31:23.018009 #21763]  INFO -- : worker=1 spawned pid=21763
+I, [2017-05-18T21:31:23.018105 #21763]  INFO -- : worker=1 ready
+I, [2017-05-18T21:31:23.018775 #21758]  INFO -- : master process ready
+I, [2017-05-18T21:31:23.022890 #21766]  INFO -- : worker=2 spawned pid=21766
+I, [2017-05-18T21:31:23.022995 #21766]  INFO -- : worker=2 ready
+I, [2017-05-18T21:31:23.027222 #21769]  INFO -- : worker=3 spawned pid=21769
+I, [2017-05-18T21:31:23.027325 #21769]  INFO -- : worker=3 ready
+I, [2017-05-18T21:33:17.784519 #21758]  INFO -- : reaped #<Process::Status: pid 21761 exit 0> worker=0
+I, [2017-05-18T21:33:17.784613 #21758]  INFO -- : reaped #<Process::Status: pid 21763 exit 0> worker=1
+I, [2017-05-18T21:33:17.784673 #21758]  INFO -- : reaped #<Process::Status: pid 21766 exit 0> worker=2
+I, [2017-05-18T21:33:17.784736 #21758]  INFO -- : reaped #<Process::Status: pid 21769 exit 0> worker=3
+I, [2017-05-18T21:33:17.784781 #21758]  INFO -- : master complete
+I, [2017-05-18T21:33:21.122394 #21790]  INFO -- : Refreshing Gem list
+/home/rails/boxfree-api/config/environments/production.rb:97: warning: already initialized constant OpenSSL::SSL::VERIFY_PEER
+I, [2017-05-18T21:33:22.784404 #21790]  INFO -- : unlinking existing socket=/home/rails/boxfree-api/shared/sockets/unicorn.sock
+I, [2017-05-18T21:33:22.784560 #21790]  INFO -- : listening on addr=/home/rails/boxfree-api/shared/sockets/unicorn.sock fd=12
+I, [2017-05-18T21:33:22.784636 #21790]  INFO -- : worker=0 spawning...
+I, [2017-05-18T21:33:22.785732 #21790]  INFO -- : worker=1 spawning...
+I, [2017-05-18T21:33:22.786342 #21790]  INFO -- : worker=2 spawning...
+I, [2017-05-18T21:33:22.786870 #21793]  INFO -- : worker=0 spawned pid=21793
+I, [2017-05-18T21:33:22.786990 #21793]  INFO -- : worker=0 ready
+I, [2017-05-18T21:33:22.787623 #21790]  INFO -- : worker=3 spawning...
+I, [2017-05-18T21:33:22.788064 #21795]  INFO -- : worker=1 spawned pid=21795
+I, [2017-05-18T21:33:22.788179 #21795]  INFO -- : worker=1 ready
+I, [2017-05-18T21:33:22.788867 #21790]  INFO -- : master process ready
+I, [2017-05-18T21:33:22.793042 #21798]  INFO -- : worker=2 spawned pid=21798
+I, [2017-05-18T21:33:22.793150 #21798]  INFO -- : worker=2 ready
+I, [2017-05-18T21:33:22.797411 #21801]  INFO -- : worker=3 spawned pid=21801
+I, [2017-05-18T21:33:22.797523 #21801]  INFO -- : worker=3 ready

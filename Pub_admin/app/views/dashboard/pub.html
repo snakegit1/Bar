@@ -1,0 +1,130 @@
+<div ng-show="allPermissions">
+
+	<div ng-include src="'/views/partials/navbar-menu.html'"></div>
+
+	<div>
+
+		<h2>Nuevo Pub <small></small></h2>
+
+	  <div class="panel panel-default">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">Administrador</h3>
+		  </div>
+		  <div class="panel-body">
+	      <form class="form-horizontal" role="form">
+			  <div class="form-group">
+			    <label class="col-lg-2 control-label">Nombre</label>
+	        <div class="col-lg-10">
+	          <ol class="nya-bs-select" ng-model="selected_user" title="Selecciona un Administrador" disabled="editing" require>
+	            <li nya-bs-option="user in users">
+	              <a>
+	                {{user.name + ' ' + user.lastname  + ' ' + user.email}}
+	              </a>
+	            </li>
+	          </ol>
+						<button type="submit" class="btn btn-primary" ng-click="openModalNewAdmin()">Nuevo</button>
+	        </div>
+	      </form>
+			  </div>
+
+		</div>
+	</div>
+
+		<div class="panel panel-default">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">Información del Pub</h3>
+		  </div>
+		  <div class="panel-body">
+	      <form name="pubForm" class="form-horizontal" role="form">
+			  <div class="form-group" show-errors>
+			    <label class="col-lg-2 control-label">Nombre</label>
+			    <div class="col-lg-10">
+			       <input type="text" name="pubname" class="form-control" ng-model="pub.name" required>
+						 <span class="label label-danger" ng-show="pubForm.pubname.$error.required">Obligatorio!</span>
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label class="col-lg-2 control-label">Descripción</label>
+			    <div class="col-lg-10">
+			       <input type="text" class="form-control" name="description" ng-model="pub.description">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label class="col-lg-2 control-label">Dirección</label>
+			    <div class="col-lg-10">
+			       <input type="text" class="form-control" ng-model="pub.location">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label class="col-lg-2 control-label">Teléfono</label>
+			    <div class="col-lg-10">
+			       <input type="text" class="form-control" ng-model="pub.telephone1">
+			    </div>
+			  </div>
+
+	      <div class="col text-center">
+				     <button type="submit" class="btn btn-primary" ng-click="createPub()">Crear Pub</button>
+			  </div>
+
+			</form>
+		</div>
+	</div>
+</div>
+
+	<script type="text/ng-template" id="newAdminModalContent.html">
+
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="exampleModalLabel">Nuevo Administrador</h4>
+	      </div>
+
+	      <div class="modal-body">
+	        <form name="newAdminForm">
+
+						<div class="form-group" show-errors>
+
+						  <label for="name" class="control-label">Nombre</label>
+	            <input type="text" class="form-control" name="name" id="name" ng-model="new_admin.name" required="">
+	    			  <span class="label label-danger" ng-show="newAdminForm.name.$error.required">Obligatorio!</span>
+
+						</div>
+
+						<div class="form-group" show-errors>
+							<label for="lastname" class="control-label">Apellido</label>
+	            <input type="text" class="form-control" name="lastname" id="lastname" ng-model="new_admin.lastname" required="">
+	    			  <span class="label label-danger" ng-show="newAdminForm.lastname.$error.required">Obligatorio!</span>
+						</div>
+
+						<div class="form-group" show-errors>
+							<label for="email" class="control-label">E-Mail</label>
+	            <input type="email" class="form-control" name="email" id="email" ng-model="new_admin.email" required="">
+	    			  <span class="label label-danger" ng-show="newAdminForm.email.$error.required">Obligatorio!</span>
+							<span class="label label-danger" ng-show="newAdminForm.email.$invalid">Invalido!</span>
+						</div>
+
+						<div class="form-group" show-errors>
+							<label for="password" class="control-label">Contraseña</label>
+	            <input type="password" class="form-control" name="password" id="password" ng-model="new_admin.password" required="">
+	    			  <span class="label label-danger" ng-show="newAdminForm.password.$error.required">Obligatorio!</span>
+						</div>
+
+						<div class="form-group" show-errors>
+							<label for="password_confirmation" class="control-label">Reingrese Contraseña</label>
+							<input type="password" class="form-control" name="password_confirmation" id="password_confirmation" ng-model="new_admin.password_confirmation" required="" data-password-verify="new_admin.password">
+							<span class="label label-danger" ng-show="newAdminForm.password_confirmation.$error.required">Obligatorio!</span>
+							<span class="label label-danger" ng-show="newAdminForm.password_confirmation.$error.passwordVerify">Contraseñas no coinciden!</span>
+						</div>
+
+						<label>
+			        <input type="checkbox" ng-model="send_email"> Enviar contraseña por correo al nuevo Administrador
+			      </label>
+
+	        </form>
+
+	      </div>
+	      <div class="modal-footer">
+	      	<button class="btn btn-primary" type="button" ng-click="createAdmin(new_admin,send_email)" ng-disabled="!newAdminForm.$valid">Crear</button>
+	        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancelar</button>
+	      </div>
+
+	</script>

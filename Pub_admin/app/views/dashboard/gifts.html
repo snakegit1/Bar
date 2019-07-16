@@ -1,0 +1,77 @@
+<div  ng-show="allPermissions">
+
+	<div ng-include src="'/views/partials/navbar-menu.html'"></div>
+
+	<div>
+		<h2>Carta de Tragos <small></small></h2>
+		<div class="jumbotron">
+			<div class="container">
+        <h1>Tragos en</h1>
+				<p>Listado de tragos que se pueden comprar desde la aplicación</p>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Lista de usuarios</h3>
+			</div>
+			<div class="panel-body">
+        <table class="table table-striped">
+          <tr ng-repeat="user in users">
+            <td><a href="" ng-click="openModal(user)">{{user.lastname || user.email}} {{user.name}}</a></td>
+          </tr>
+        </table>
+		</div>
+	</div>
+	</div>
+</div>
+
+<script type="text/ng-template" id="giftModal.html">
+
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="exampleModalLabel">Regalos para {{user.lastname || user.email}} {{user.name}}</h4>
+  </div>
+
+  <div class="modal-body">
+
+    <form name="pubDrinkForm">
+
+      <div class="form-group">
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Seleccione un beber a regalo
+          </div>
+        </label>
+        <label>
+          <ol id="array-collection" class="nya-bs-select" ng-model="selected_drink" title="Selecciona una categoría">
+            <li nya-bs-option="option in drinks group by option.drink_category.name">
+              <span class="dropdown-header">{{$group}}</span>
+              <a>
+                {{option.drink_name}}
+              </a>
+            </li>
+          </ol>
+        </label>
+        <label>
+          <button class="btn btn-success" type="button" ng-click="createGift(selected_drink.id)" ng-disabled="selected_drink == null">Agregar</button>
+        </label>
+      </div>
+
+      <div>
+        <span><strong>Lista de regalos</strong></span>
+        <table class="table table-striped">
+          <tr ng-repeat="gift in gifts track by $index">
+            <td>{{gift.drink_name}}</td>
+            <td><button type="button" class="btn btn-danger" style="float: right;" ng-click="deleteGift(gift, $index)">retirar</td>
+          </tr>
+        </table>
+      </div>
+
+    </form>
+
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancelar</button>
+  </div>
+
+</script>

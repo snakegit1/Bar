@@ -1,0 +1,106 @@
+<div ng-show="allPermissions">
+
+	<div ng-include src="'/views/partials/navbar-menu.html'"></div>
+
+	<div>
+		<a ui-sref="overview({ id: pub.id })" class="pull-right btn btn-primary btn-outline btn-rounded">Datos Generales {{pub.name}}</a>
+		<h2>Carta de Tragos <small></small></h2>
+		<!--
+		<span class="glyphicon glyphicon-glass bg-fade"></span>
+		-->
+		<div class="jumbotron">
+			<div class="container">
+				<h1>Tragos en {{pub.name}}</h1>
+				<p>Listado de tragos que se pueden comprar desde la aplicación</p>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Carta</h3>
+			</div>
+			<div class="panel-body">
+				<p> Actualmente estas ofreciendo <strong>{{pub.pub_drinks.length}} tragos</strong> desde la aplicación móvil</p>
+
+				<uib-accordion>
+					<uib-accordion-group ng-repeat="(key, value) in pub.pub_drinks | groupBy: 'drink_category.name'">
+				      <uib-accordion-heading>
+				         {{key}} ({{value.length}})<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+				      </uib-accordion-heading>
+				      <table class="table">
+							<tr ng-repeat="pub_drink in value">
+								<td>
+									{{pub_drink.drink_name}}
+									 <i class="glyphicon red" ng-class="" style="color: red;">{{pub_drink.enable ? '' : 'Disabled'}}</i>
+								</td>
+								<td>${{pub_drink.price}}</td>
+								<td>
+									<div class="btn-group">
+										<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											Opciones <span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu">
+											<li><a href="" ng-click="openModal(pub, pub_drink)"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Cambiar precio</a></li>
+											<li role="separator" class="divider"></li>
+											<li><a href="" ng-click="disablePubDrink(pub_drink.id)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> {{ (pub_drink.enable == true) ? 'Disable' : 'Enable' }}</a></li>
+										</ul>
+									</div>
+								</td>
+							</tr>
+					    </table>
+				    </uib-accordion-group>
+				</uib-accordion>
+		</div>
+	</div>
+	<div class="col text-center">
+		<button type="button" class="btn btn-primary" ng-click="openModal(pub)">Ofrecer {{ pub.pub_drinks.length == 0 ? 'un' : 'otro' }} Trago</button>
+	</div>
+
+	</div>
+</div>
+
+<script type="text/ng-template" id="myModalContent.html">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 ng-show="!editing" class="modal-title" id="exampleModalLabel">Ofrecer un nuevo Trago</h4>
+				<h4 ng-show="editing" class="modal-title" id="exampleModalLabel">Cambiar Precio</h4>
+      </div>
+
+      <div class="modal-body">
+
+        <form name="pubDrinkForm">
+
+        	<div class="form-group" ng-show="!editing">
+	        	<label class="item item-input item-select">
+			        <div class="input-label">
+			          Categoría
+			        </div>
+
+			        <ol id="array-collection" class="nya-bs-select" ng-model="selected_drink" title="Selecciona una categoría" disabled="editing">
+			        	<li nya-bs-option="option in drinks group by option.drink_category.name">
+				        	<span class="dropdown-header">{{$group}}</span>
+				        	<a>
+				          	{{option.name}}
+				        	</a>
+				        </li>
+							</ol>
+			   		</label>
+					</div>
+
+          <div class="form-group" show-errors>
+            <label for="message-text" class="control-label">Precio:</label>
+            <input type="text" class="form-control" name="price" id="price" ng-model="selected_price" style="width: 250px;" ng-pattern="/^[0-9]{1,7}$/" required="">
+            <span ng-show="pubDrinkForm.price.$error.pattern" >No es un número válido!</span>
+    			  <span ng-show="pubDrinkForm.price.$error.required">Obligatorio!</span>
+          </div>
+
+        </form>
+
+      </div>
+      <div class="modal-footer">
+      	<button ng-show="!editing" class="btn btn-primary" type="button" ng-click="createPubDrink(selected_drink, selected_price)" ng-disabled="selected_drink == null">Agregar</button>
+				<button ng-show="editing" class="btn btn-primary" type="button" ng-click="createPubDrink(selected_drink, selected_price)">Editar</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancelar</button>
+      </div>
+
+</script>

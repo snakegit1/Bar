@@ -1,0 +1,86 @@
+<div>
+        <div ng-include src="'/views/partials/navbar-menu.html'"></div>
+    
+        <div>
+            <a ui-sref="overview" class="pull-right btn btn-primary btn-outline btn-rounded">Volver a Datos Generales</a>
+            <h2>Reportes</h2>
+    
+            <div class="jumbotron">
+                <div class="container">
+                    <h1>Administración</h1>
+                    <fieldset>
+                        <div class="form-field">					
+    
+                            <table>
+                                <tr>
+                                    <td>
+                                        <datepicker date-format="yyyy-MM-dd">
+                                            <input ng-model="date_start" type="text" placeholder="Fecha de inicio" />
+                                        </datepicker>
+                                    </td>
+    
+                                    <td>&nbsp;&nbsp;</td>
+                                    <td>
+                                        <datepicker date-format="yyyy-MM-dd">
+                                            <input ng-model="date_end" type="text" placeholder="Fecha de termino" />
+                                        </datepicker>
+                                    </td>
+                                    <td>&nbsp;&nbsp;</td>
+                                    <td>
+                                        <input type="submit" value="Filtrar resultados" ng-click="refreshOrders();" />
+                                    </td>
+                                    <td>&nbsp;&nbsp;</td>
+                                    <td><a id="download_to_csv" href="javascript:void(0)" ng-click="downloadData();">Descargar a Excel</a></td>
+                                </tr>
+                            </table>
+    
+                            
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+    
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Últimas ventas</h3>
+              </div>
+              <div class="panel-body">
+    
+                    <div ng-if="orders != null && orders.length > 0" ng-cloak>
+                        <table class="table table-stripped">
+                            <thead>
+                                    <th>#</th>
+                                    <th>Pub</th>
+                                    <th>Nombre</th>
+                                    <th>Correo electrónico</th>
+                                    <th>Monto</th>
+                                    <th>¿Canjeado?</th>
+                                    <th>Fecha de compra</th>
+                                    <th>Fecha de canjeo</th>
+                                    <th>Acciones</th>
+                            </thead>
+                            <tbody>
+                                <tr id="show-order-{{order.id}}" ng-repeat="order in orders">
+                                    <td>{{order.id}}</td>
+                                    <td>{{order.pub.name}}</td>
+                                    <td>{{order.user.name + " " + order.user.lastname}}</td>
+                                    <td>{{order.user.email}}</td>
+                                    <td>${{order.price}}</td>
+                                    <td>{{order.status_traslated}}</td>
+                                    <td>{{order.created_at_formated}}</td>
+                                    <td>{{order.updated_at_formated}}</td>
+                                    <td><a id="show-details-{{order.id}}" href="javascript:void(0)" ng-click="showOrder(order.id)">Ver Detalle</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+    
+                    </div>
+    
+                    <div ng-if="orders.length == 0" ng-cloak>
+                        <p>No existen ordenes actualmente para visualizar</p>
+                    </div>
+    
+                </div>
+        </div>
+    </div>
+    
